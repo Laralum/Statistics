@@ -15,7 +15,7 @@
                  <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-4@xl">
                      <div>
                          <div class="uk-card uk-card-default uk-card-body">
-                             <span class="statistics-text">@lang('laralum_statistics::general.visits')</span><br />
+                             <span class="statistics-text">@lang('laralum_statistics::general.views')</span><br />
                              <span class="statistics-number">
                                  {{ $views->count() }}
                              </span>
@@ -60,10 +60,10 @@
                      <div>
                          <div class="uk-card uk-card-default">
                              <div class="uk-card-header">
-                                 @lang('laralum_statistics::general.visits_last_week')
+                                 @lang('laralum_statistics::general.views_last_week')
                              </div>
                              <div class="uk-card-body">
-                                 {!! $visitsLastWeek->render() !!}
+                                 {!! $viewsLastWeek->render() !!}
                              </div>
                          </div>
                      </div>
@@ -107,7 +107,8 @@
                                     <table class="uk-table uk-table-small">
                                         <thead>
                                             <tr>
-                                                <th>@lang('laralum_statistics::general.visits')</th>
+                                                <th>@lang('laralum_statistics::general.views')</th>
+                                                <th>@lang('laralum_statistics::general.unique_visitors')</th>
                                                 <th>@lang('laralum_statistics::general.url')</th>
                                             </tr>
                                         </thead>
@@ -122,6 +123,7 @@
                                             @foreach( $sortedViews as $view )
                                                 <tr>
                                                     <td>{{$view->countSameUrl()}}</td>
+                                                    <td>{{$view->countSameUrl(true)}}</td>
                                                     <td><a href="{{ $view->next_url }}">{{ $view->next_url }}</a></td>
                                                 </tr>
                                             @endforeach
