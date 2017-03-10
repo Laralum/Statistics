@@ -22,19 +22,30 @@ class StatisticController extends Controller
           ->elementLabel(__('laralum_statistics::general.visits'))
           ->lastByDay(7, true); //true is for fancy output
 
+        $uniqueVisitorsLastWeek = Charts::database(View::all()->unique('ip') , 'area', 'highcharts')
+          ->title(__('laralum_statistics::general.unique_visitors_last_week'))
+          ->elementLabel(__('laralum_statistics::general.unique_visitors'))
+          ->lastByDay(7, true); //true is for fancy output
+
         $mostUsedBrowsers = Charts::database(View::all(), 'donut', 'highcharts')
           ->title(__('laralum_statistics::general.most_used_browsers'))
           ->elementLabel(__('laralum_statistics::general.browser'))
           ->groupBy('browser'); //true is for fancy output
 
+        $mostUsedOs = Charts::database(View::all(), 'donut', 'highcharts')
+          ->title(__('laralum_statistics::general.most_used_os'))
+          ->elementLabel(__('laralum_statistics::general.os'))
+          ->groupBy('os'); //true is for fancy output
 
-        $charts = [
-            'visits_last_week' => $visitsLastWeek,
-            'most_used_browsers' => $mostUsedBrowsers,
-        ];
 
         $views = View::all();
 
-        return view('laralum_statistics::index', ['charts' => $charts, 'views' => $views]);
+        return view('laralum_statistics::index', [
+            'views' => $views,
+            'visitsLastWeek' => $visitsLastWeek,
+            'uniqueVisitorsLastWeek' => $uniqueVisitorsLastWeek,
+            'mostUsedBrowsers' => $mostUsedBrowsers,
+            'mostUsedOs' => $mostUsedOs,
+        ]);
     }
 }

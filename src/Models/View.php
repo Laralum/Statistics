@@ -31,7 +31,32 @@ class View extends Model
         'previous_url', 'next_url'
     ];
 
+    /**
+    * Return number of total views with same next_url than current view.
+    */
+    public function countSameUrl() {
+        return self::all()->where('next_url', $this->next_url)->count();
+    }
 
+    /**
+    * Return number of total views with same browser than current view.
+    */
+    public function countSameBrowser() {
+        return self::all()->where('browser', $this->browser)->count();
+    }
+
+
+    /**
+    * Return number of total views with same os than current view.
+    */
+    public function countSameOs() {
+        return self::all()->where('os', $this->os)->count();
+    }
+
+
+    /**
+    * Add a view row to the database.
+    */
     public static function addView() {
         self::create([
             'user_id' => Auth::check() ? Auth::id() : NULL,
@@ -46,6 +71,8 @@ class View extends Model
 
         ]);
     }
+
+
     /**
     * Gets the real client IP.
     */
