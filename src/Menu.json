@@ -1,0 +1,8 @@
+{
+    "items": [
+        {
+            "trans": "laralum_statistics::general.statistics",
+            "route": "laralum::statistics.index"
+        }
+    ]
+}
