@@ -18,8 +18,8 @@ class StatisticController extends Controller
     public function index()
     {
         $viewsLastWeek = Charts::database(View::all(), 'area', 'highcharts')
-          ->title(__('laralum_statistics::general.visits_last_week'))
-          ->elementLabel(__('laralum_statistics::general.visits'))
+          ->title(__('laralum_statistics::general.views_last_week'))
+          ->elementLabel(__('laralum_statistics::general.views'))
           ->lastByDay(7, true); //true is for fancy output
 
         $uniqueVisitorsLastWeek = Charts::database(View::all()->unique('ip') , 'area', 'highcharts')
