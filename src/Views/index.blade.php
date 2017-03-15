@@ -120,7 +120,7 @@
                                                 });
                                             ?>
 
-                                            @foreach( $sortedViews as $view )
+                                            @foreach( $sortedViews->take(10) as $view )
                                                 <tr>
                                                     <td>{{$view->countSameUrl()}}</td>
                                                     <td>{{$view->countSameUrl(true)}}</td>
