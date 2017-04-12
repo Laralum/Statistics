@@ -5,9 +5,9 @@ Route::group([
             'web', 'laralum.base', 'laralum.auth',
             'can:access,Laralum\Statistics\Models\View',
         ],
-        'prefix' => config('laralum.settings.base_url'),
+        'prefix'    => config('laralum.settings.base_url'),
         'namespace' => 'Laralum\Statistics\Controllers',
-        'as' => 'laralum::'
+        'as'        => 'laralum::',
     ], function () {
         Route::get('statistics', 'StatisticController@index')->name('statistics.index');
-});
+    });
