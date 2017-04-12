@@ -2,16 +2,14 @@
 
 namespace Laralum\Statistics;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Gate;
-
+use Illuminate\Support\ServiceProvider;
+use Laralum\Permissions\PermissionsChecker;
 use Laralum\Statistics\Models\View;
 use Laralum\Statistics\Policies\ViewPolicy;
-use Laralum\Permissions\PermissionsChecker;
 
 class StatisticsServiceProvider extends ServiceProvider
 {
-
     /**
      * The policy mappings for the application.
      *
@@ -30,8 +28,8 @@ class StatisticsServiceProvider extends ServiceProvider
         [
             'name' => 'Statistics Access',
             'slug' => 'laralum::statistics.access',
-            'desc' => "Grants access to laralum/statistics module",
-        ]
+            'desc' => 'Grants access to laralum/statistics module',
+        ],
     ];
 
     /**
@@ -54,11 +52,10 @@ class StatisticsServiceProvider extends ServiceProvider
 
         // Make sure the permissions are OK
         PermissionsChecker::check($this->permissions);
-
     }
 
     /**
-     * I cheated this comes from the AuthServiceProvider extended by the App\Providers\AuthServiceProvider
+     * I cheated this comes from the AuthServiceProvider extended by the App\Providers\AuthServiceProvider.
      *
      * Register the application's policies.
      *
@@ -70,7 +67,6 @@ class StatisticsServiceProvider extends ServiceProvider
             Gate::policy($key, $value);
         }
     }
-
 
     /**
      * Register the application services.
