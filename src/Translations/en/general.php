@@ -18,6 +18,8 @@ return [
     'unique_visitors'              => 'Unique Visitors',
     'views_last_week'              => 'Views last week',
     'statistics'                   => 'Statistics',
+    'restart'                      => 'Restart',
+    'clear_all'                    => 'Clear all statistics data',
     'statistics_desc'              => 'Here you can know the website statistics',
     'most_used_browsers'           => 'Most used browsers',
     'most_used_browser'            => 'Most used browser',
