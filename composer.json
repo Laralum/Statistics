@@ -2,7 +2,7 @@
     "name": "laralum/statistics",
     "description": "Statistics module for laralum",
     "require": {
-		"laralum/laralum": "dev-master"
+		"laralum/laralum": "1.*"
 	},
     "license": "MIT",
     "authors": [

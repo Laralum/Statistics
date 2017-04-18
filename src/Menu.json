@@ -1,6 +1,7 @@
 {
     "items": [
         {
+            "permission" : "laralum::statistics.access",
             "trans": "laralum_statistics::general.statistics",
             "route": "laralum::statistics.index"
         }
