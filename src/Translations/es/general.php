@@ -19,7 +19,7 @@ return [
     'views_last_week'           => 'Vistas de la semana pasada',
     'statistics'                => 'Estadística',
     'restart'                   => 'Reiniciar',
-    'clear_all'                 => 'Borrar todos los datos estadísticos',
+    'clear_all'                 => 'Borrar todos los datos estadísticos?',
     'statistics_desc'           => 'Aquí puede conocer las estadísticas del sitio web',
     'most_used_browsers'        => 'Navegadores más utilizados',
     'most_used_browser'         => 'Navegador más utilizado',

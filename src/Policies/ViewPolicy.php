@@ -33,4 +33,16 @@ class ViewPolicy
     {
         return User::findOrFail($user->id)->hasPermission('laralum::statistics.access');
     }
+
+    /**
+     * Determine if the current user can access statistics moule.
+     *
+     * @param mixed $user
+     *
+     * @return bool
+     */
+    public function restart($user)
+    {
+        return User::findOrFail($user->id)->hasPermission('laralum::statistics.restart');
+    }
 }

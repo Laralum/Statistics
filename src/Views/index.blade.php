@@ -135,6 +135,9 @@
                          </div>
                      </div>
                  </div>
+                 <div class="uk-margin-xlarge uk-text-center">
+                     <a href="{{ route('laralum::statistics.restart.confirm') }}" class="uk-button uk-button-danger uk-width-1-2@s uk-width-1-3@m uk-width-1-4@l">@lang('laralum_statistics::general.restart')</a>
+                 </div>
              </div>
          </div>
 

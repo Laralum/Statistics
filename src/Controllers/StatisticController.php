@@ -47,4 +47,23 @@ class StatisticController extends Controller
             'mostUsedOs'             => $mostUsedOs,
         ]);
     }
+
+    public function restartConfirmation()
+    {
+        $this->authorize('restart', View::class);
+        return view('laralum::pages.confirmation', [
+            'method'  => 'DELETE',
+            'message' => __('laralum_statistics::general.clear_all'),
+            'action'  => route('laralum::statistics.restart'),
+        ]);
+    }
+
+    public function restart()
+    {
+        $this->authorize('restart', View::class);
+        View::all()->each(function ($view) {
+            $view->delete();
+        });
+        return redirect()->route('laralum::statistics.index')->with('success', __('laralum_statistics::general.statistics_restarted'));
+    }
 }

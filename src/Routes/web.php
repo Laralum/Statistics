@@ -10,4 +10,6 @@ Route::group([
         'as'        => 'laralum::',
     ], function () {
         Route::get('statistics', 'StatisticController@index')->name('statistics.index');
+        Route::get('statistics/reset', 'StatisticController@restartConfirmation')->name('statistics.restart.confirm');
+        Route::delete('statistics/reset', 'StatisticController@restart')->name('statistics.restart');
     });

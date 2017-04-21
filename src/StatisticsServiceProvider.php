@@ -30,6 +30,11 @@ class StatisticsServiceProvider extends ServiceProvider
             'slug' => 'laralum::statistics.access',
             'desc' => 'Grants access to laralum/statistics module',
         ],
+        [
+            'name' => 'Restart Statistics',
+            'slug' => 'laralum::statistics.restart',
+            'desc' => 'Grants permission to restart statistics',
+        ],
     ];
 
     /**
