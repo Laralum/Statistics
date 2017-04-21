@@ -60,26 +60,6 @@
                      <div>
                          <div class="uk-card uk-card-default">
                              <div class="uk-card-header">
-                                 @lang('laralum_statistics::general.views_last_week')
-                             </div>
-                             <div class="uk-card-body">
-                                 {!! $viewsLastWeek->render() !!}
-                             </div>
-                         </div>
-                     </div>
-                     <div>
-                         <div class="uk-card uk-card-default">
-                             <div class="uk-card-header">
-                                 @lang('laralum_statistics::general.unique_visitors_last_week')
-                             </div>
-                             <div class="uk-card-body">
-                                 {!! $uniqueVisitorsLastWeek->render() !!}
-                             </div>
-                         </div>
-                     </div>
-                     <div>
-                         <div class="uk-card uk-card-default">
-                             <div class="uk-card-header">
                                  @lang('laralum_statistics::general.most_used_browsers')
                              </div>
                              <div class="uk-card-body">
@@ -94,6 +74,26 @@
                              </div>
                              <div class="uk-card-body">
                                  {!! $mostUsedOs->render() !!}
+                             </div>
+                         </div>
+                     </div>
+                     <div>
+                         <div class="uk-card uk-card-default">
+                             <div class="uk-card-header">
+                                 @lang('laralum_statistics::general.views_last_week')
+                             </div>
+                             <div class="uk-card-body">
+                                 {!! $viewsLastWeek->render() !!}
+                             </div>
+                         </div>
+                     </div>
+                     <div>
+                         <div class="uk-card uk-card-default">
+                             <div class="uk-card-header">
+                                 @lang('laralum_statistics::general.unique_visitors_last_week')
+                             </div>
+                             <div class="uk-card-body">
+                                 {!! $uniqueVisitorsLastWeek->render() !!}
                              </div>
                          </div>
                      </div>
