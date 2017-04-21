@@ -51,6 +51,7 @@ class StatisticController extends Controller
     public function restartConfirmation()
     {
         $this->authorize('restart', View::class);
+
         return view('laralum::pages.confirmation', [
             'method'  => 'DELETE',
             'message' => __('laralum_statistics::general.clear_all'),
@@ -64,6 +65,7 @@ class StatisticController extends Controller
         View::all()->each(function ($view) {
             $view->delete();
         });
+
         return redirect()->route('laralum::statistics.index')->with('success', __('laralum_statistics::general.statistics_restarted'));
     }
 }
