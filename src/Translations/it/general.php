@@ -20,7 +20,7 @@ return [
     'statistics'                => 'Statistica',
     'restart'                   => 'Ricomincia',
     'clear_all'                 => 'Cancella dati di tutte le statistiche?',
-    'statistics_restarted'      => "Le statistiche sono state riavviate!",
+    'statistics_restarted'      => 'Le statistiche sono state riavviate!',
     'statistics_desc'           => 'Qui è possibile conoscere le statistiche del sito web',
     'most_used_browsers'        => 'I browser più usati',
     'most_used_browser'         => 'Il browser più utilizzato',

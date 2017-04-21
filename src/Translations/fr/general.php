@@ -20,7 +20,7 @@ return [
     'statistics'                => 'Statistiques',
     'restart'                   => 'Redémarrer',
     'clear_all'                 => 'Effacer toutes les données statistiques?',
-    'statistics_restarted'      => "Les statistiques ont été redémarrées!",
+    'statistics_restarted'      => 'Les statistiques ont été redémarrées!',
     'statistics_desc'           => 'Ici, vous pouvez connaître les statistiques du site',
     'most_used_browsers'        => 'La plupart des navigateurs utilisés',
     'most_used_browser'         => 'Navigateur le plus utilisé',
