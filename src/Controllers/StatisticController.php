@@ -28,12 +28,14 @@ class StatisticController extends Controller
         $mostUsedBrowsers = Charts::database(View::all(), 'donut', 'highcharts')
           ->title(__('laralum_statistics::general.most_used_browsers'))
           ->elementLabel(__('laralum_statistics::general.browser'))
-          ->groupBy('browser'); //true is for fancy output
+          ->groupBy('browser')
+          ->colors(['#F44336', '#3F51B5', '#4CAF50', '#FFC107', '#2196F3', '#009688', '#673AB7', '#795548']);
 
         $mostUsedOs = Charts::database(View::all(), 'donut', 'highcharts')
           ->title(__('laralum_statistics::general.most_used_os'))
           ->elementLabel(__('laralum_statistics::general.os'))
-          ->groupBy('os'); //true is for fancy output
+          ->groupBy('os')
+          ->colors(['#F44336', '#3F51B5', '#4CAF50', '#FFC107', '#2196F3', '#009688', '#673AB7', '#795548']);
 
         $views = View::all();
 
