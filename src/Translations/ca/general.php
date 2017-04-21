@@ -20,6 +20,7 @@ return [
     'statistics'                => 'Estadística',
     'restart'                   => 'Reinicia',
     'clear_all'                 => 'Esborrar les dades de totes les estadístiques?',
+    'statistics_restarted'      => "Les estadístiques s'han reiniciat!",
     'statistics_desc'           => 'Aquí podrà conèixer les estadístiques del lloc web',
     'most_used_browsers'        => 'Navegadors més usats',
     'most_used_browser'         => 'La majoria navegador utilitzat',
