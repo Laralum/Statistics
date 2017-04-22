@@ -14,7 +14,6 @@
 
 This module helps you to control your website traffic by generating statistics.
 
-*Includes sample public views*
 
 ## Documentation
 
