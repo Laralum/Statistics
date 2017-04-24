@@ -56,8 +56,8 @@
                          </div>
                      </div>
                  </div>
-                 <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-2@l">
-                     <div>
+                 <div uk-grid>
+                     <div class="uk-width-1-1@s uk-width-1-2@l">
                          <div class="uk-card uk-card-default">
                              <div class="uk-card-header">
                                  @lang('laralum_statistics::general.most_used_browsers')
@@ -67,7 +67,7 @@
                              </div>
                          </div>
                      </div>
-                     <div>
+                     <div class="uk-width-1-1@s uk-width-1-2@l">
                          <div class="uk-card uk-card-default">
                              <div class="uk-card-header">
                                  @lang('laralum_statistics::general.most_used_os')
@@ -77,8 +77,8 @@
                              </div>
                          </div>
                      </div>
-                     <div>
-                         <div class="uk-card uk-card-default">
+                     <div class="uk-width-1-1@s uk-width-1-1@l">
+                         <div class="uk-card uk-width-1-1 uk-card-default">
                              <div class="uk-card-header">
                                  @lang('laralum_statistics::general.views_last_week')
                              </div>
@@ -87,17 +87,7 @@
                              </div>
                          </div>
                      </div>
-                     <div>
-                         <div class="uk-card uk-card-default">
-                             <div class="uk-card-header">
-                                 @lang('laralum_statistics::general.unique_visitors_last_week')
-                             </div>
-                             <div class="uk-card-body">
-                                 {!! $uniqueVisitorsLastWeek->render() !!}
-                             </div>
-                         </div>
-                     </div>
-                     <div>
+                     <div class="uk-width-1-1@s uk-width-1-1@l">
                          <div class="uk-card uk-card-default">
                              <div class="uk-card-header">
                                  @lang('laralum_statistics::general.most_visited_pages')

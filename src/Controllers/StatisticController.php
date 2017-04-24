@@ -15,34 +15,31 @@ class StatisticController extends Controller
      */
     public function index()
     {
-        $viewsLastWeek = Charts::database(View::all(), 'area', 'highcharts')
-          ->title(__('laralum_statistics::general.views_last_week'))
-          ->elementLabel(__('laralum_statistics::general.views'))
-          ->lastByDay(7, true); //true is for fancy output
+        $views = View::all();
 
-        $uniqueVisitorsLastWeek = Charts::database(View::all()->unique('ip'), 'area', 'highcharts')
-          ->title(__('laralum_statistics::general.unique_visitors_last_week'))
-          ->elementLabel(__('laralum_statistics::general.unique_visitors'))
-          ->lastByDay(7, true); //true is for fancy output
+        $viewsLastWeek = Charts::multiDatabase('area', 'highcharts')
+        ->title(__('laralum_statistics::general.views_last_week'))
+        ->dataset(__('laralum_statistics::general.views_last_week'), $views)
+        ->dataset(__('laralum_statistics::general.unique_visitors_last_week'), $views->unique('ip'))
+        ->elementLabel(__('laralum_statistics::general.views'))
+        ->lastByDay(7, true); //true is for fancy output
 
-        $mostUsedBrowsers = Charts::database(View::all(), 'donut', 'highcharts')
+        $mostUsedBrowsers = Charts::database($views, 'donut', 'highcharts')
           ->title(__('laralum_statistics::general.most_used_browsers'))
           ->elementLabel(__('laralum_statistics::general.browser'))
           ->groupBy('browser')
           ->colors(['#F44336', '#3F51B5', '#4CAF50', '#FFC107', '#2196F3', '#009688', '#673AB7', '#795548']);
 
-        $mostUsedOs = Charts::database(View::all(), 'donut', 'highcharts')
+        $mostUsedOs = Charts::database($views, 'donut', 'highcharts')
           ->title(__('laralum_statistics::general.most_used_os'))
           ->elementLabel(__('laralum_statistics::general.os'))
           ->groupBy('os')
           ->colors(['#F44336', '#3F51B5', '#4CAF50', '#FFC107', '#2196F3', '#009688', '#673AB7', '#795548']);
 
-        $views = View::all();
 
         return view('laralum_statistics::index', [
             'views'                  => $views,
             'viewsLastWeek'          => $viewsLastWeek,
-            'uniqueVisitorsLastWeek' => $uniqueVisitorsLastWeek,
             'mostUsedBrowsers'       => $mostUsedBrowsers,
             'mostUsedOs'             => $mostUsedOs,
         ]);
