@@ -36,7 +36,6 @@ class StatisticController extends Controller
           ->groupBy('os')
           ->colors(['#F44336', '#3F51B5', '#4CAF50', '#FFC107', '#2196F3', '#009688', '#673AB7', '#795548']);
 
-
         return view('laralum_statistics::index', [
             'views'                  => $views,
             'viewsLastWeek'          => $viewsLastWeek,
