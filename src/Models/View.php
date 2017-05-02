@@ -32,36 +32,6 @@ class View extends Model
     ];
 
     /**
-     * Return number of total views with same next_url than current view.
-     */
-    public function countSameUrl($uniqueUsers = false)
-    {
-        $views = self::all()->where('next_url', $this->next_url);
-
-        return ($uniqueUsers) ? $views->unique('ip')->count() : $views->count();
-    }
-
-    /**
-     * Return number of total views with same browser than current view.
-     */
-    public function countSameBrowser($uniqueUsers = false)
-    {
-        $views = self::all()->where('browser', $this->browser);
-
-        return ($uniqueUsers) ? $views->unique('ip')->count() : $views->count();
-    }
-
-    /**
-     * Return number of total views with same os than current view.
-     */
-    public function countSameOs($uniqueUsers = false)
-    {
-        $views = self::all()->where('os', $this->os);
-
-        return ($uniqueUsers) ? $views->unique('ip')->count() : $views->count();
-    }
-
-    /**
      * Add a view row to the database.
      */
     public static function addView()
