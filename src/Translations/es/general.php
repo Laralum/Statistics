@@ -12,7 +12,7 @@ return [
     'name'                      => 'Nombre',
     'browser'                   => 'Navegador',
     'actions'                   => 'Comportamiento',
-    'views'                     => 'Puntos de vista',
+    'views'                     => 'Vistas',
     'os'                        => 'Sistema operativo',
     'url'                       => 'URL',
     'unique_visitors'           => 'Visitantes únicos',
@@ -25,5 +25,6 @@ return [
     'most_used_browser'         => 'Navegador más utilizado',
     'most_visited_pages'        => 'Páginas más visitadas',
     'most_used_os'              => 'Sistema operativo más utilizado',
+    'most_used_language'        => 'Lenguaje mas utilizado',
     'unique_visitors_last_week' => 'Visitantes únicos la semana pasada',
 ];

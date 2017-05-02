@@ -26,5 +26,6 @@ return [
     'most_used_browser'            => 'Most used browser',
     'most_visited_pages'           => 'Most visited pages',
     'most_used_os'                 => 'Most used OS',
+    'most_used_language'           => 'Most used language',
     'unique_visitors_last_week'    => 'Unique visitors last week',
 ];
