@@ -55,7 +55,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="uk-width-1-2">
+                <div class="uk-width-1-1@m uk-width-1-2@l">
                     <div class="uk-card uk-card-default">
                         <div class="uk-card-header">
                             @lang('laralum_statistics::general.most_used_browsers')
@@ -65,7 +65,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="uk-width-1-2">
+                <div class="uk-width-1-1@m uk-width-1-2@l">
                     <div class="uk-card uk-card-default">
                         <div class="uk-card-header">
                             @lang('laralum_statistics::general.most_used_os')
