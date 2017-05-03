@@ -3,8 +3,8 @@
 namespace Laralum\Statistics\Controllers;
 
 use App\Http\Controllers\Controller;
-use Laralum\Statistics\Models\View;
 use Illuminate\Http\Request;
+use Laralum\Statistics\Models\View;
 
 class APIController extends Controller
 {
@@ -72,6 +72,7 @@ class APIController extends Controller
      * Get the most used resource.
      *
      * @param string $resource
+     *
      * @return \Illuminate\Http\Response
      */
     private function mostUsed($resource)

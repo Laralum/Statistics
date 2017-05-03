@@ -14,4 +14,4 @@ Route::group([
         Route::post('/statistics/most/os', 'APIController@getMostUsedOs')->name('statistics.mostUsedOs');
         Route::post('/statistics/most/browser', 'APIController@getMostUsedBrowser')->name('statistics.mostUsedBrowser');
         Route::post('/statistics/most/language', 'APIController@getMostUsedLanguage')->name('statistics.mostUsedLanguage');
-});
+    });
