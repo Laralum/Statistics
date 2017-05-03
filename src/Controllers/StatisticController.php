@@ -15,7 +15,9 @@ class StatisticController extends Controller
      */
     public function index()
     {
-        $labels = []; $normal_views = []; $unique_views = [];
+        $labels = [];
+        $normal_views = [];
+        $unique_views = [];
         $all_views = View::all();
 
         for ($i = 0; $i < 7; $i++) {
@@ -31,7 +33,7 @@ class StatisticController extends Controller
                                 ->labels(array_reverse($labels))
                                 ->dataset(__('laralum_statistics::general.views'), array_reverse($normal_views))
                                 ->dataset(__('laralum_statistics::general.unique_visitors'), array_reverse($unique_views));
-        
+
         $labels = $all_views->unique('os')->pluck('os');
 
         $values = [];
@@ -60,8 +62,8 @@ class StatisticController extends Controller
 
         return view('laralum_statistics::index', [
             'latest_views_chart' => $latest_views_chart,
-            'browsers_chart' => $browsers_chart,
-            'oss_chart' => $oss_chart
+            'browsers_chart'     => $browsers_chart,
+            'oss_chart'          => $oss_chart,
         ]);
     }
 
