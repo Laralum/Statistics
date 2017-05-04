@@ -16,6 +16,7 @@ return [
     'os'                        => 'Sistema operatiu',
     'url'                       => 'URL',
     'unique_visitors'           => 'Visitants únics',
+    'sessions'                  => 'Sessions',
     'views_last_week'           => 'Vistes setmana passada',
     'statistics'                => 'Estadística',
     'restart'                   => 'Reinicia',

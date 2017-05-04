@@ -19,15 +19,15 @@
                     <div class="uk-card uk-card-default uk-card-body">
                         <span class="statistics-text">@lang('laralum_statistics::general.views')</span><br />
                         <span class="statistics-number" id="views">
-                            <div uk-spinner></div>
+                            {{ $views }}
                         </span>
                     </div>
                 </div>
                 <div class="uk-width-1-1@m uk-width-1-2@l">
                     <div class="uk-card uk-card-default uk-card-body">
-                        <span class="statistics-text">@lang('laralum_statistics::general.unique_visitors')</span><br />
+                        <span class="statistics-text">@lang('laralum_statistics::general.sessions')</span><br />
                         <span class="statistics-number" id="unique_views">
-                            <div uk-spinner></div>
+                            {{ $sessions }}
                         </span>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                     <div class="uk-card uk-card-default uk-card-body">
                         <span class="statistics-text">@lang('laralum_statistics::general.most_used_browser')</span><br />
                         <span class="statistics-number" id="most_used_browser">
-                            <div uk-spinner></div>
+                            {!! $most_used['browser'] !!}
                         </span>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                     <div class="uk-card uk-card-default uk-card-body">
                         <span class="statistics-text">@lang('laralum_statistics::general.most_used_os')</span><br />
                         <span class="statistics-number" id="most_used_os">
-                            <div uk-spinner></div>
+                            {{ $most_used['os'] }}
                         </span>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                     <div class="uk-card uk-card-default uk-card-body">
                         <span class="statistics-text">@lang('laralum_statistics::general.most_used_language')</span><br />
                         <span class="statistics-number" id="most_used_language">
-                            <div uk-spinner></div>
+                            {!! $most_used['language'] !!}
                         </span>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
         </div>
     </div>
 @endsection
-@section('js')
+{{-- @section('js')
 <script>
     $(function() {
         $.ajaxSetup({
@@ -125,7 +125,7 @@
                 $('#most_used_language').text(data['data']).animate({opacity:1});
             });
         });
-        
+
     });
 </script>
-@endsection
+@endsection --}}

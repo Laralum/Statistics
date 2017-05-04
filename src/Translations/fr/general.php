@@ -17,6 +17,7 @@ return [
     'url'                       => 'URL',
     'unique_visitors'           => 'Visiteurs uniques',
     'views_last_week'           => 'Vues la semaine dernière',
+    'sessions'                  => 'Séances',
     'statistics'                => 'Statistiques',
     'restart'                   => 'Redémarrer',
     'clear_all'                 => 'Effacer toutes les données statistiques?',

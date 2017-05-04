@@ -3,11 +3,8 @@
 namespace Laralum\Statistics\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Request;
-use Illuminate\Support\Facades\URL;
-use Unicodeveloper\Identify\Facades\IdentityFacade as Identify;
+use Illuminate\Support\Facades\Session;
+use Carbon\Carbon;
 
 class View extends Model
 {
@@ -24,11 +21,7 @@ class View extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'ip',
-        'browser', 'browser_version',
-        'os', 'os_version',
-        'locale', 'browser_locale',
-        'previous_url', 'next_url',
+        'views', 'sessions',
     ];
 
     /**
@@ -36,35 +29,25 @@ class View extends Model
      */
     public static function addView()
     {
-        self::create([
-            'user_id'         => Auth::check() ? Auth::id() : null,
-            'ip'              => self::getIP(),
-            'browser'         => Identify::browser()->getName(),
-            'browser_version' => Identify::browser()->getVersion(),
-            'os'              => Identify::os()->getName(),
-            'os_version'      => Identify::os()->getVersion(),
-            'locale'          => App::getLocale(),
-            'browser_locale'  => Identify::lang()->getLanguage(),
-            'next_url'        => Request::url(),
-
-        ]);
+        $allViews = self::all();
+        if ($allViews->count()) {
+            $last = $allViews->last();
+            if ($last->created_at->lt(Carbon::now()->subMinutes(60))) {
+                self::create([
+                    'views' => 1,
+                    'sessions' => !Session::has('laralum_statistics_record'),
+                ]);
+            } else {
+                $last->update([
+                    'views' => $last->views + 1,
+                    'sessions' => $last->sessions + !Session::has('laralum_statistics_record'),
+                ]);
+            }
+        } else {
+            self::create([
+                'views' => 1,
+                'sessions' => 1,
+            ]);
+        }
     }
-
-   /**
-    * Gets the real client IP.
-    */
-   public static function getIP()
-   {
-       if (!empty($_SERVER['HTTP_CF_CONNECTING_IP'])) {   //check ip from cloudflare
-         $ip = $_SERVER['HTTP_CF_CONNECTING_IP'];
-       } elseif (!empty($_SERVER['HTTP_CLIENT_IP'])) {   //check ip from share internet
-         $ip = $_SERVER['HTTP_CLIENT_IP'];
-       } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {   //to check ip is pass from proxy
-         $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-       } else {
-           $ip = $_SERVER['REMOTE_ADDR'];
-       }
-
-       return $ip;
-   }
 }
