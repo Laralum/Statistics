@@ -2,9 +2,9 @@
 
 namespace Laralum\Statistics\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Session;
-use Carbon\Carbon;
 
 class View extends Model
 {
@@ -34,18 +34,18 @@ class View extends Model
             $last = $allViews->last();
             if ($last->created_at->lt(Carbon::now()->subMinutes(60))) {
                 self::create([
-                    'views' => 1,
+                    'views'    => 1,
                     'sessions' => !Session::has('laralum_statistics_record'),
                 ]);
             } else {
                 $last->update([
-                    'views' => $last->views + 1,
+                    'views'    => $last->views + 1,
                     'sessions' => $last->sessions + !Session::has('laralum_statistics_record'),
                 ]);
             }
         } else {
             self::create([
-                'views' => 1,
+                'views'    => 1,
                 'sessions' => 1,
             ]);
         }

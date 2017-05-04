@@ -2,12 +2,11 @@
 
 namespace Laralum\Statistics\Models;
 
-use Unicodeveloper\Identify\Facades\IdentityFacade as Identify;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Session;
-use Carbon\Carbon;
-
+use Unicodeveloper\Identify\Facades\IdentityFacade as Identify;
 
 class Record extends Model
 {
@@ -25,9 +24,8 @@ class Record extends Model
      */
     protected $fillable = [
         'name', 'type',
-        'views', 'sessions'
+        'views', 'sessions',
     ];
-
 
     public static function check($name, $type)
     {
@@ -36,22 +34,22 @@ class Record extends Model
             $last = $collection->orderBy('id', 'desc')->first();
             if ($last->created_at->lt(Carbon::now()->subDay())) {
                 self::create([
-                    'name' => $name,
-                    'type' => $type,
-                    'views' => 1,
+                    'name'     => $name,
+                    'type'     => $type,
+                    'views'    => 1,
                     'sessions' => !Session::has('laralum_statistics_record'),
                 ]);
             } else {
                 $last->update([
-                    'views' => $last->views + 1,
+                    'views'    => $last->views + 1,
                     'sessions' => $last->sessions + !Session::has('laralum_statistics_record'),
                 ]);
             }
         } else {
             self::create([
-                'name' => $name,
-                'type' => $type,
-                'views' => 1,
+                'name'     => $name,
+                'type'     => $type,
+                'views'    => 1,
                 'sessions' => 1,
             ]);
         }

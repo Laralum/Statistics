@@ -2,17 +2,17 @@
 
 namespace Laralum\Statistics\Controllers;
 
-use App\Http\Controllers\Controller;
-use ConsoleTVs\Charts\Facades\Charts;
-use Laralum\Statistics\Models\View;
-use Laralum\Statistics\Models\Record;
-use Carbon\Carbon;
 use Aitor24\Localizer\Facades\LocalizerFacade as Localizer;
+use App\Http\Controllers\Controller;
+use Carbon\Carbon;
+use ConsoleTVs\Charts\Facades\Charts;
+use Laralum\Statistics\Models\Record;
+use Laralum\Statistics\Models\View;
 
 class StatisticController extends Controller
 {
-
-    public function deleteOldRecords() {
+    public function deleteOldRecords()
+    {
         View::where('created_at', '<', Carbon::now()->subWeek())->each(function ($view) {
             $view->delete();
         });
@@ -101,8 +101,8 @@ class StatisticController extends Controller
                 'os' => $records
                                 ->where('sessions', collect($valuesOSS)->max())
                                 ->where('type', 'os')
-                                ->first()->name
-            ]
+                                ->first()->name,
+            ],
         ]);
     }
 
