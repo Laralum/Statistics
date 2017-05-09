@@ -30,6 +30,6 @@ class CreateLaralumStatisticsRecords extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('laralum_statistics');
+        Schema::dropIfExists('laralum_statistics_records');
     }
 }
